@@ -18,9 +18,9 @@ This toolkit is provided for educational purposes to aid developers, security re
 The RevApk Toolkit is intended solely for educational purposes. Users are responsible for adhering to legal and ethical guidelines when using these tools. The toolkit's creator disclaims any responsibility for any misuse of the toolkit or its components.
 
 **Credits:**
-- APKTool by Connor Tumbleson: https://ibotpeaches.github.io/Apktool/
-- ZipAlign by The Android Open Source Project: https://source.android.com/
-- APKSigner by Max Weiner: https://github.com/maxweiner/apk-signer
+- APKTool: https://ibotpeaches.github.io/Apktool/
+- ZipAlign: https://developer.android.com/tools/zipalign?hl=en
+- APKSigner: https://developer.android.com/tools/apksigner?hl=en
 
 ## For Linux
 
