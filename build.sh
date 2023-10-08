@@ -9,7 +9,7 @@
 APK_BUILD_FILENAME="app"
 
 # DEFINE DEFAULT DECOMPILE PATH DIRECTORY
-DECOMPILE_SRC_PATH="./decompiled_apks/decompiled"
+DECOMPILE_SRC_PATH="decompiled_apks/decompiled"
 
 # DEFINE ALIGNED APK OUTPUT FILE NAME
 ALIGNED_APK_NAME="aligned"
@@ -59,9 +59,11 @@ runJarPackage() {
 APKTOOL_PATH="./toolkit/apktool/apktool_2.8.1.jar"
 APKTOOL_BUILD_FLAG="b"
 APKTOOL_OUTPUT_FLAG="-o"
+# FLAG FOR FIX RESOURCE NAVEGATION BUG
+APKTOOL_AAPT2="--use-aapt2"
 
 runAPKTool() {
-    runJarPackage $APKTOOL_PATH $APKTOOL_BUILD_FLAG $DECOMPILE_SRC_PATH $APKTOOL_OUTPUT_FLAG $UNALIGNED_OUTPUT_PATH
+    runJarPackage $APKTOOL_PATH $APKTOOL_BUILD_FLAG $DECOMPILE_SRC_PATH $APKTOOL_AAPT2 $APKTOOL_OUTPUT_FLAG $UNALIGNED_OUTPUT_PATH
 }
 
 ##
@@ -116,6 +118,13 @@ cleanResidualFiles() {
 }
 
 ##
+# Run ADB for install the application via USB
+#
+runADB_ApkInstaller() {
+    adb install $APK_BUILD_PATH
+}
+
+##
 # APK Build Process
 #
 buildApk() {
@@ -123,6 +132,10 @@ buildApk() {
     runZipAlign
     runApkSigner
     cleanResidualFiles
+
+    # Uncomment this for install the application after
+    # compilation.
+    #runADB_ApkInstaller
 }
 
 ##
