@@ -8,8 +8,11 @@
 # DEFINE APK OUTPUT FILE NAME
 APK_BUILD_FILENAME="app"
 
+# DEFINE DECOMPILED DIRECTORY
+DECOMPILE_DIR_PATH="decompiled"
+
 # DEFINE DEFAULT DECOMPILE PATH DIRECTORY
-DECOMPILE_SRC_PATH="decompiled_apks/decompiled"
+DECOMPILE_SRC_PATH="decompiled_apks/${DECOMPILE_DIR_PATH}"
 
 # DEFINE ALIGNED APK OUTPUT FILE NAME
 ALIGNED_APK_NAME="aligned"
@@ -135,7 +138,7 @@ buildApk() {
 
     # Uncomment this for install the application after
     # compilation.
-    #runADB_ApkInstaller
+    runADB_ApkInstaller
 }
 
 ##
